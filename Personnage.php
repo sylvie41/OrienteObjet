@@ -1,32 +1,41 @@
 <?php
-class Personnage{
+	class Personne {
 
-	public $nom;
-	public $prenom;
-	public $adresse;
-	public $naissance;
+		public $nom;
+		public $prenom;
+		public $adresse;
+		public $naissance;
+	
 
 
-	public function __construct(){
-		his->nom = $nom;
-		his->prenom = $prenom;
-		his->adresse = $adresse;
-		his->naissance = $naissance;
+		public function __construct($prenom){
+			$this->prenom=$prenom;
+		    }
+	
+		//Affichages des infos
+		public function personne(){
+			echo "prénom: " .$this->prenom.
+			"<br> nom: " .$this->nom.
+			"<br> adresse: " .$this->adresse.
+			"<br> Date de naissance: " .$this->naissance.
+			"<br>";
+		    }
+
+		//Modification Adresse
+		public function setAdresse($adresse){
+			$this->adresse = $adresse;
+		    }
+		
+		//Modification Naissance
+		public function setNaissance($naissance){
+			$this->naissance = $naissance;
+		    }
+
+		//Age
+		public function age() {
+			$age = date('Ym',strtotime ("now")) - date('Ym',strtotime ($this->naissance));
+			echo substr($age,0 , 2);
+		    }
 	}
 
-
-
-	public function age($date)
-	{
-		list($jour, $mois, $annee) = explode ('/', $date);
-		$TSN = strtotime($annee."/".$mois."/".$jour);
-		$TS = strtotime(date("Y/m/d"));
-		 
-		$Age = ($TS-$TSN)/(365*3600*24);
-		echo round($Age);			
-	}
-
-
-
-
-}
+?>
