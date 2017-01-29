@@ -16,20 +16,6 @@ class Personnage{
 
 
 
-	public function regenerer($vie = null){
-		if(is_null($vie)){
-			$this->vie = 100;
-		}else{
-			$this->vie = $this->$vie + $vie;
-			// = $this->vie += $vie;
-		}
-	}
-
-	public function mort(){
-		return $this->$vie <= 0;
-	}
-
-
 	public function age($date)
 	{
 		list($jour, $mois, $annee) = explode ('/', $date);
